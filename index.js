@@ -21,10 +21,6 @@ var blogRealm = new Realm({
     schema: [PostSchema]
 });
 
-app.get('/', function(req, res) {
-    res.send('Hello Realm');
-});
-
 app.get('/write', function(req, res) {
     res.sendfile(__dirname + "/write.html");
 });
@@ -37,6 +33,13 @@ app.post('/write', function(req, res) {
         blogRealm.create('Post', {title: title, content: content, timestamp});
     });
     res.sendFile(__dirname + "/write-complete.html");
+});
+
+app.set('view engine', 'ejs');
+
+app.get('/', function(req, res) {
+    let posts = blogRealm.objects('Post').sorted('timestamp', true);
+    res.render('index.ejs', {posts: posts});
 });
 
 app.listen(3000, function() {
