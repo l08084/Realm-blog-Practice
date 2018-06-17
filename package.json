@@ -1,0 +1,21 @@
+{
+  "name": "realm-blog",
+  "version": "0.1.0",
+  "description": "Realm Blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "realm": "^2.8.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
